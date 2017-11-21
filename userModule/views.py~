@@ -1,0 +1,89 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.contrib.auth import authenticate,login,logout
+from .forms import UserForm,RoleForm
+from django.http import HttpResponseRedirect
+
+from django.shortcuts import redirect
+# Create your views here.
+
+def loginPage(request):
+    return render(request,'userModule/login.html')
+
+def provideDetailsUser(request):
+    return render(request,'userModule/provideDetailsUser.html')
+
+def provideDetailsAdmin(request):
+    return render(request,'userModule/provideDetailsAdmin.html')
+
+ 	
+def register(request):
+    print request.POST	
+    form = UserForm(request.POST)
+    context ={"status": "failed"}
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+
+            roleform = RoleForm(request.POST)
+	    print roleform	
+            if roleform.is_valid():
+                role = roleform.save(commit=False)
+                role.user = user
+                role.isApproved = "no"
+                role.save()
+	    	if user.is_active:
+			login(request, user)
+			context = {
+			    "status": "failure",
+			}
+		else:
+			context = {
+			    "status": "failure",
+			}
+    return JsonResponse(context)
+
+def login_user(request):
+    context ={"status": "failed"}
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                context = {
+                    "status": "success",
+                }
+            else:
+                context = {
+                    "status": "success",
+                }
+    return JsonResponse(context)
+
+def logout_user(request):
+    logout(request)
+    #return render(request, 'userModule/login.html')
+    #return redirect('userModule.views.loginPage')
+    return HttpResponseRedirect("/")
+
+def getDetails(request):
+
+    if not request.user.is_authenticated():
+        return render(request, 'userModule/login.html')
+    else:
+        data = {"status":"success","username":str(request.user)}
+        return JsonResponse(data)
+
+
+
+
+

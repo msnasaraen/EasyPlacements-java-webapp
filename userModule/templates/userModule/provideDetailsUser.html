@@ -1,0 +1,251 @@
+<html lang="en" class=" "><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentelella Alela! | </title>
+    {% load staticfiles %}
+    <!-- Bootstrap -->
+    <link href="{% static 'userModule/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'userModule/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{% static 'userModule/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+    <!-- jQuery custom content scroller -->
+    <link href="{% static 'userModule/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{% static 'userModule/build/css/custom.min.css' %}" rel="stylesheet">
+    <link href="{% static 'userModule/css/bootstrap-multiselect.css' %}" rel="stylesheet">
+    <link href="{% static 'userModule/css/adminDetails.css' %}" rel="stylesheet">
+    <link href="{% static 'userModule/css/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'userModule/css/custom.css' %}" rel="stylesheet">
+
+
+
+
+  </head>
+
+  <body class="footer-fixed nav-sm">
+    <div class="container body">
+      <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img src="images/img.jpg" alt=""><label id="username-header">william</label>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="/logout_user/"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Form Wizards <small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <!-- Smart Wizard -->
+                <p>This is a basic form wizard example that inherits the colors from the selected scheme.</p>
+                <div id="wizard" class="form_wizard wizard_horizontal">
+                  <ul class="wizard_steps">
+                    <li>
+                      <a href="#step-1">
+                        <span class="step_no">1</span>
+                        <span class="step_descr">
+                              Step 1<br />
+                              <small>Step 1 description</small>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#step-2">
+                        <span class="step_no">2</span>
+                        <span class="step_descr">
+                              Step 2<br />
+                              <small>Step 2 description</small>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div id="step-1" style="overflow:hidden">
+                    <form class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div  class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Prefered Dept</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select id="demo">
+                                <option value="cse">CSE</option>
+                                <option value="it">IT</option>
+                                <option value="mech">MECH</option>
+                                <option value="prod">PROD</option>
+                                <option value="eee">EEE</option>
+                                <option value="eie">EIE</option>
+                                <option value="ece">ECE</option>
+                                <option value="ibt">IBT</option>
+                                <option value="civil">CIVIL</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Roll No <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Address<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <textarea cols="3" type="text" id="Decription" name="company_description" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div id="radioBtn" class="btn-group">
+                                    <a class="btn btn-primary btn-sm notActive" data-toggle="gender" data-title="male">Male</a>
+                                    <a class="btn btn-primary btn-sm notActive" data-toggle="gender" data-title="female">Female</a>
+                                </div>
+                                <input type="hidden" name="gender" id="gender">
+                            </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="birthday" data-date-format="mm/dd/yyyy" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Year<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        </div>
+
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of joining<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="joining" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        </div>
+
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        </div>
+
+                      </div>
+                      <div class="form-group">
+                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Place</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div id="radioBtn" class="btn-group">
+                                    <a class="btn btn-primary btn-sm notActive" data-toggle="place" data-title="hostel">Hosteller</a>
+                                    <a class="btn btn-primary btn-sm notActive" data-toggle="place" data-title="dayscholar">Day Scholar</a>
+                                </div>
+                                <input type="hidden" name="place" id="place">
+                            </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div id="step-2" style="overflow:hidden">
+                    <form class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Picture<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Resume<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- End SmartWizard Content -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'userModule/vendors/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'userModule/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'userModule/vendors/fastclick/lib/fastclick.js' %}"></script>
+    <!-- NProgress -->
+    <script src="{% static 'userModule/vendors/nprogress/nprogress.js' %}"></script>
+    <!-- bootstrap-progressbar -->
+    <!-- jQuery custom content scroller -->
+    <script src="{% static 'userModule/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'userModule/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js' %}"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'userModule/build/js/custom.min.js' %}"></script>
+    <script src="{% static 'userModule/js/bootstrap-multiselect.js' %}"></script>
+    <script src="{% static 'placements/js/userDetails.js' %}"></script>
+    <script src="{% static 'userModule/js/datepicker.js' %}"></script>
+
+    <script>
+      $(document).ready(function() {
+          $('#demo').multiselect();
+          $('#birthday').datepicker();
+          $('#joining').datepicker();
+
+          $('#radioBtn a').on('click', function(){
+            var sel = $(this).data('title');
+            var tog = $(this).data('toggle');
+            $('#'+tog).prop('value', sel);
+
+            $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+            $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+          })
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+#radioBtn .notActive{
+    color: #395E84;
+    background-color: #fff;
+}
+
+#radioBtn a{
+    text-decoration:none;
+    color: #ffffff;
+    background-color: #354B63;
+}
+
+.input-group {
+    margin: 0 auto;
+    padding-right:15px;
+    padding-bottom:10px;
+}
+
+.stepContainer{
+    height:auto;
+}
+
+.content{
+    overflow:hidden;
+}
