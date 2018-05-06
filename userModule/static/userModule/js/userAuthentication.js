@@ -12,7 +12,7 @@ $(document).ready(function(){
     $('#next').click(function () {
 
         var adminDetails = objectifyForm($('#adminDetails').serializeArray());
-        alert(JSON.stringify(adminDetails));
+        //alert(JSON.stringify(adminDetails));
         $.ajax({
            url: 'http://127.0.0.1:8000/user/addAdminDetails/',
            data: adminDetails,
@@ -21,7 +21,7 @@ $(document).ready(function(){
            },
            dataType: 'json',
            success: function(data) {
-              alert("whooyaa");
+              //alert("whooyaa");
            },
            type: 'POST'
         });
@@ -31,6 +31,31 @@ $(document).ready(function(){
     $('#finish').click(function () {
 
         $('#photoFormAdmin').submit();
+
+    });
+
+     $('#nextUser').click(function () {
+
+        var userDetails = objectifyForm($('#userDetails').serializeArray());
+        //alert(JSON.stringify(userDetails));
+        $.ajax({
+           url: 'http://127.0.0.1:8000/user/addUserDetails/',
+           data: userDetails,
+           error: function() {
+              $('#info').html('<p>An error has occurred</p>');
+           },
+           dataType: 'json',
+           success: function(data) {
+              //alert("whooyaa");
+           },
+           type: 'POST'
+        });
+
+    });
+
+    $('#finishUser').click(function () {
+
+        $('#photoFormUser').submit();
 
     });
 
@@ -50,14 +75,22 @@ $(document).ready(function(){
                 if(details.type == "admin"){
                     if(details.isApproved=="yes"){
                         $("#index").submit();
+                        $("#username-header").html(data.username);
+                    }
+                    else if(data.provides=="yes"){
+                        $('#notApprovedadmin').submit();
+
                     }
                     else{
                         $("#provideDetailsAdmin").submit();
-
                     }
                 }
                 else{
                     if(details.isApproved=="yes"){
+                       $('#userindex').submit();
+                    }
+                    else if(data.provides=="yes"){
+                       $('#notApproveduser').submit();
                     }
                     else{
                         $("#provideDetailsUser").submit();
@@ -82,17 +115,25 @@ $(document).ready(function(){
               if(data.status=="success")
               {
                 var details = data.Details;
-                if(details.type == "admin"){
+                if(details.role == "admin"){
                     if(details.isApproved=="yes"){
                         $("#index").submit();
+                        $("#username-header").html(data.username);
+                    }
+                    else if(data.provides=="yes"){
+                        $('#notApprovedadmin').submit();
+
                     }
                     else{
                         $("#provideDetailsAdmin").submit();
-
                     }
                 }
                 else{
                     if(details.isApproved=="yes"){
+                        $('#userindex').submit();
+                    }
+                    else if(data.provides=="yes"){
+                       $('#notApproveduser').submit();
                     }
                     else{
                         $("#provideDetailsUser").submit();

@@ -13,4 +13,9 @@ urlpatterns = [
     url(r'^getDetails/$', views.getDetails, name='getDetails'),
     url(r'^addAdminDetails/$',views.addAdminDetails,name='addAdminDetails'),
     url(r'^addUserDetails/$', views.addUserDetails, name='addUserDetails'),
+    url(r'^getUserDetails/$', views.getUserDetails, name='getUserDetails'),
+    url(r'^getAdminDetails/$', views.getAdminDetails, name='getAdminDetails'),
+    url(r'^notApprovedAdmin/$', views.notApprovedAdmin, name='notApprovedAdmin'),
+    url(r'^notApprovedUser/$', views.notApprovedUser, name='notApprovedUser'),
+
 ]

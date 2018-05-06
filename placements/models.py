@@ -24,5 +24,37 @@ class Company(models.Model):
 
     def as_json(self):
         return dict(
-            compamy_id=self.id,company_description=self.company_description,company_Type = self.company_type,company_Name = self.company_name,company_email=self.email_id,company_contact1=self.contact_1,company_logo=self.company_logo.url,rating=self.rating)
+            company_id=self.id,
+            package=self.package,
+            cgpa=self.cgpa,
+            bond=self.bond,
+            contact_1=self.contact_1,
+            contact_2=self.contact_2,
+            date_of_visit=self.date_of_visit,
+            depts=self.depts.upper(),
+            company_description=self.company_description,
+            company_type = self.company_type,
+            company_name = self.company_name,
+            email_id=self.email_id,
+            company_logo=self.company_logo.url,
+            rating=self.rating,
+            website=self.website,
+            dept = self.depts)
+
+    def as_jsonUser(self):
+        return dict(
+            company_id=self.id,
+            package=self.package,
+            cgpa=self.cgpa,
+            bond=self.bond,
+            date_of_visit=self.date_of_visit,
+            depts=self.depts.upper(),
+            company_description=self.company_description,
+            company_type = self.company_type,
+            company_name = self.company_name,
+            company_logo=self.company_logo.url,
+            rating=self.rating,
+            website=self.website,
+            dept = self.depts)
+
 

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentelella Alela! | </title>
+    {% load staticfiles %}
+    <!-- Bootstrap -->
+    <link href="{% static 'placements/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'placements/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="{% static 'placements/build/css/custom.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'placements/css/hide.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col menu-fixed">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"> <span>&nbsp&nbsp  Easy Placements</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img id="profile-sidebar" src="" alt="" class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2 id="username-sidebar">John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li class="active"><a><i class="fa fa-edit"></i> Company <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: block;">
+                      <li class="active" ><a href="#" id="get_companies">All Companies</a></li>
+                      <li><a href="#" id="elligible">Elligible Companies</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img id="profile-header" src="" alt=""><label id="username-header">John Doe</label>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="{% url 'userModule:logout_user' %}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="{% url 'userModule:provideDetailsUser' %}"><i class="fa fa-sign-out pull-right"></i> Edit Profile</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col companies" role="main">
+          <div class="">
+            <div class="clearfix"></div>
+                <div class="row companiesdiv">
+                  {% verbatim %}
+                  <script id="handlebar_template" type="text/x-handlebars-template">
+                      {{#each this}}
+                      <div class="left col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                          <div class="col-sm-12">
+                            <h4 class="brief"><i>{{this.company_type}}</i></h4>
+                            <div class="left col-xs-7">
+                              <h2>{{this.company_name}}</h2>
+                              <p><strong>About: </strong> {{this.company_description}} </p>
+                            </div>
+                            <div class="right col-xs-5 text-center" style="margin-top:20px">
+                              <img src="{{ this.company_logo }}" alt="" class="img-responsive">
+                            </div>
+                          </div>
+                          <div class="col-xs-12 bottom text-center">
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                              <p class="ratings">
+                                <a>{{ this.rating }}</a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star-o"></span></a>
+                              </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                              <button type="button" name="view_company" id="{{ this.company_id }}" class="btn btn-primary btn-xs view_company">
+                                <i class="fa fa-user"> </i> View
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+                  </script>
+                  {% endverbatim %}
+                </div>
+            </div>
+          </div>
+
+        <div class="right_col elligible_companies" role="main">
+          <div class="">
+            <div class="clearfix"></div>
+                <div class="row elligiblecompaniesdiv">
+                  {% verbatim %}
+                  <script id="handlebar_template" type="text/x-handlebars-template">
+                      {{#each this}}
+                      <div class="left col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                          <div class="col-sm-12">
+                            <h4 class="brief"><i>{{this.company_type}}</i></h4>
+                            <div class="left col-xs-7">
+                              <h2>{{this.company_name}}</h2>
+                              <p><strong>About: </strong> {{this.company_description}} </p>
+                            </div>
+                            <div class="right col-xs-5 text-center" style="margin-top:20px">
+                              <img src="{{ this.company_logo }}" alt="" class="img-responsive">
+                            </div>
+                          </div>
+                          <div class="col-xs-12 bottom text-center">
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                              <p class="ratings">
+                                <a>{{ this.rating }}</a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star-o"></span></a>
+                              </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                              <button type="button" name="view_company" id="{{ this.company_id }}" class="btn btn-primary btn-xs view_company">
+                                <i class="fa fa-user"> </i> View
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+                  </script>
+                  {% endverbatim %}
+                </div>
+            </div>
+          </div>
+
+        <div class="right_col company_details hide" role="main">
+          <div class="">
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Add Company <small>Please Fill the details</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" id="view_company_content">
+                    {% verbatim %}
+                        <script id="handlebar_template_view_company" type="text/x-handlebars-template">
+                            <div class="col-md-4 col-sm-4 col-xs-12 profile_left">
+                                  <div class="profile_img">
+                                    <div id="crop-avatar">
+                                      <!-- Current avatar -->
+                                      <img class="img-responsive avatar-view" src="{{ this.company_logo }}" alt="Avatar" title="Change the avatar">
+                                    </div>
+                                  </div>
+                                  <h3>{{ this.company_name }}</h3>
+
+                                  <ul class="list-unstyled user_data">
+                                    <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                                    </li>
+
+                                    <li>
+                                      <i class="fa fa-briefcase user-profile-icon"></i> {{ this.company_type }}
+                                    </li>
+
+                                    <li class="m-top-xs">
+                                      <i class="fa fa-external-link user-profile-icon"></i>
+                                      <a href="http://www.kimlabs.com/profile/" target="_blank">{{ this.website }}</a>
+                                    </li>
+                                  </ul>
+                                 <br>
+                                </div>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <table style="font-size:14px" class="table">
+                                  <tbody>
+                                    <tr>
+                                      <td>Company Name</td>
+                                      <td>{{ this.company_name }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Description</td>
+                                      <td>{{ this.company_description }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Type</td>
+                                      <td>{{ this.company_type }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Departments</td>
+                                      <td>{{ this.depts }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Date</td>
+                                      <td>{{ this.date_of_visit }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Package</td>
+                                      <td>{{ this.package }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>CGPA</td>
+                                      <td>{{ this.cgpa }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Bond</td>
+                                      <td>{{ this.bond }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Rating</td>
+                                      <td>{{ this.rating }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Website</td>
+                                      <td>{{ this.website }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Logo</td>
+                                      <td>the Bird</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                            </div>
+                        </script>
+                    {% endverbatim %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+      </div>
+    </div>
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    <!-- jQuery -->
+    <script src="{% static 'placements/vendors/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'placements/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'placements/js/handlebars.js' %}"></script>
+    <script src="{% static 'placements/build/js/custom.min.js' %}"></script>
+    <script src="{% static 'placements/js/userDetails.js' %}"></script>
+    <script src="{% static 'placements/js/getCompaniesUser.js' %}"></script>
+
+
+  </body>
+</html>

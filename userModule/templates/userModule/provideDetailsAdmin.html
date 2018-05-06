@@ -33,10 +33,15 @@
       <div class="top_nav">
           <div class="nav_menu">
             <nav>
+              <ul class="nav navbar-nav navbar-left">
+                <div class="navbar nav_title" style="background-color:#EDEDED;color:#2A3F54">
+                  <a href="index.html" class="site_title" style="color:#2A3F54 !important"> <span>&nbsp&nbsp  Easy Placements</span></a>
+                </div>
+              </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/img.jpg" alt=""><label id="username-header">william</label>
+                      <img id="profile-header" src="images/img.jpg" alt=""><label id="username-header" name="get">william</label>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -107,15 +112,15 @@
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Dept</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select name="dept" id="demo">
-                                <option value="cse">CSE</option>
-                                <option value="it">IT</option>
-                                <option value="mech">MECH</option>
-                                <option value="prod">PROD</option>
-                                <option value="eee">EEE</option>
-                                <option value="eie">EIE</option>
-                                <option value="ece">ECE</option>
-                                <option value="ibt">IBT</option>
-                                <option value="civil">CIVIL</option>
+                                <option value="CSE">CSE</option>
+                                <option value="IT">IT</option>
+                                <option value="MECH">MECH</option>
+                                <option value="PROD">PROD</option>
+                                <option value="EEE">EEE</option>
+                                <option value="EIE">EIE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="IBT">IBT</option>
+                                <option value="CIVIL">CIVIL</option>
                             </select>
                         </div>
                       </div>
@@ -165,10 +170,13 @@
                     <form id="photoFormAdmin" action="{% url 'userModule:addAdminDetails' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                         {% csrf_token %}
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Picture<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-6" for="first-name">Picture<span class="required">*</span>
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" id="profilepicture" name="profilepicture" required="required" class="form-control col-md-7 col-xs-12">
+                        <div class="col-md-1 col-sm-1 col-xs-3" id="adminPicture" style="display:none">
+                          <a href="/media/p2_WsJ1zDm.jpg" id="edit_admin_picture_a" download="resume.pdf"><img id="edit_admin_picture" src="/media/p2_WsJ1zDm.jpg" style="height:50px;width:50px;" class="left"></a>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-4">
+                          <input type="file" id="profilepicture" name="profilepicture" required="required" class="form-control col-md-7 col-xs-4">
                         </div>
                       </div>
                     </form>
@@ -198,7 +206,10 @@
     <script src="{% static 'userModule/js/bootstrap-multiselect.js' %}"></script>
     <script src="{% static 'placements/js/userDetails.js' %}"></script>
     <script src="{% static 'userModule/js/datepicker.js' %}"></script>
+    <script src="{% static 'userModule/js/jquery.formautofill.js' %}"></script>
     <script src="{% static 'userModule/js/userAuthentication.js' %}"></script>
+    <script src="{% static 'placements/js/userDetails.js' %}"></script>
+    <script src="{% static 'userModule/js/getDetailsAdmin.js' %}"></script>
     <script>
       $(document).ready(function() {
           $('#demo').multiselect();
